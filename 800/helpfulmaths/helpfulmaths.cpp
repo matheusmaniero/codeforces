@@ -2,7 +2,7 @@
     #define _GLIBCXX_DEBUG
 #endif
 #include <bits/stdc++.h>
-#include <deb.h>
+//#include <deb.h>
 #define sz(a) ((int)((a).size()))
 #define char unsigned char
  
@@ -14,26 +14,57 @@ typedef long long ll;
 typedef long double ld;
  
 int solve() {
-    ll n;
-    cin >> n;
+    string str="";
+    cin >> str;
+    int n = str.size();
+    string ans="";
+    //debug(str);
 
-    cout << n/2<<'\n'; 
+    std::vector<int>nums;
+
+    for (int i = 0; i < n; i++) {
+        if (str[i] != '+'){ 
+            
+            nums.push_back(str[i]);
+            
+        }
+    }
+
+   // debug(nums);
+
+    std::sort(nums.begin(),nums.end());
+    int c = nums.size();
+
+    for (int i = 0; i < c; i++){
+        ans+=nums[i];
+        if (i != c-1){
+
+            ans+="+";
+
+
+        }
+    }
+    
+
+    
+    cout << ans << '\n';
     return 0;
+
 }
  
 int32_t main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
-    int TET; 
-    cin >> TET;
-    for (int i = 1; i <= TET; i++) {
-        if (solve()) {
-            break;
-        }
+   
+  
+   
+       solve();
+           
+        
         #ifdef ONPC
             cout << "__________________________" << endl;
         #endif
-    }
+    
     #ifdef ONPC
         cerr << endl << "finished in " << clock() * 1.0 / CLOCKS_PER_SEC << " sec" << endl;
     #endif
